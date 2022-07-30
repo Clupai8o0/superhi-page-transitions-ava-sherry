@@ -1,3 +1,5 @@
+const body = document.querySelector("body");
+
 // the files barba and barbaCss are supposedly already imported somewhere else
 barba.use(barbaCss);
 
@@ -20,6 +22,17 @@ barba.init({
 					behavior: "smooth",
 				});
 			},
+		},
+	],
+	views: [
+		{
+			namespace: "feed",
+      beforeEnter() {
+        body.classList.add("feed");
+      },
+      beforeLeave() {
+        body.classList.remove("feed");
+      }
 		},
 	],
 });
