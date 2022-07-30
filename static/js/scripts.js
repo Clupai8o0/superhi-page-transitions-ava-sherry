@@ -22,6 +22,7 @@ barba.init({
 					behavior: "smooth",
 				});
 			},
+      once() {}, // to run upon start
 		},
 	],
 	views: [

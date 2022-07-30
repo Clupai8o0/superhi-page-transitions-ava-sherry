@@ -151,7 +151,8 @@ section.feed img {
 /** Barba */
 /* transition active states */
 .fade-leave-active,
-.fade-enter-active {
+.fade-enter-active,
+.fade-once-active {
 	transition: all var(--timing) var(--bezier);
 }
 
@@ -165,12 +166,44 @@ section.feed img {
 	transform: translate(0, 30px);
 }
 
-.fade-enter {
+.fade-enter,
+.fade-once {
   opacity: 0;
 	transform: translate(0, 30px);
 }
 
-.fade-enter-to {
+.fade-enter-to,
+.fade-once-to {
   opacity: 1;
 	transform: translate(0, 0);
+}
+
+/* Basic css for running on start */
+@keyframes fade {
+	0% {
+		opacity: 0;
+		transform: translate(0, 30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+header h1,
+header p,
+header nav,
+footer {
+	animation: fade var(--timing) var(--bezier) both;
+}
+header h1 {
+	animation-delay: var(--timing);
+}
+header p {
+	animation-delay: calc(var(--timing) * 2);
+}
+header nav {
+	animation-delay: calc(var(--timing) * 3);
+}
+footer {
+	animation-delay: calc(var(--timing) * 4);
 }
